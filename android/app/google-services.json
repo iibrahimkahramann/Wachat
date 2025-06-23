@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "239286288869",
+    "project_id": "wachat-6f28f",
+    "storage_bucket": "wachat-6f28f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239286288869:android:17bf2f693cf337ff2cef0c",
+        "android_client_info": {
+          "package_name": "com.messanger.wachat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjliai3dGvApBJd6qYiyq_vcK7lUJ_jNU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
