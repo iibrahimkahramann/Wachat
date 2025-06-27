@@ -250,7 +250,7 @@ class SettingsScreen extends ConsumerWidget {
                   if (await inAppReview.isAvailable()) {
                     await inAppReview.requestReview();
                   } else {
-                    print('In-app review is not available');
+                    await inAppReview.openStoreListing();
                   }
                 },
                 child: Row(
