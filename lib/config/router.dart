@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:wachat_new_package/emoji/screen/emoji_screen.dart';
-import 'package:wachat_new_package/home/screen/home_screeen.dart';
-import 'package:wachat_new_package/note/note/screen/private_note_screen.dart';
-import 'package:wachat_new_package/sticker/screen/sticker_screen.dart';
-import 'package:wachat_new_package/wachat/screen/wachat_screen.dart';
-import '../onboarding/screen/onboarding_screen.dart';
-import '../qr_generator/detail/screen/qr_code_detail_screen.dart';
-import '../qr_generator/list/screen/qr_code_list_screen.dart';
-import '../qr_reader/reader/screen/qr_reader_screen.dart';
-import '../qr_generator/generator/screen/qr_generator_screen.dart';
-import '../qr_reader/scanned/screen/scanned_qr_codes_screen.dart';
-import '../settings/screen/settings_screen.dart';
-import '../note/list/screen/note_list_screen.dart';
-import '../note/detail/screen/note_detail_screen.dart';
-import '../splash/screen/splash_screen.dart';
+import 'package:wachat_new_package/views/emoji/screen/emoji_screen.dart';
+import 'package:wachat_new_package/views/home/screen/home_screeen.dart';
+import 'package:wachat_new_package/views/note/note/screen/private_note_screen.dart';
+import 'package:wachat_new_package/views/sticker/screen/sticker_screen.dart';
+import 'package:wachat_new_package/views/wachat/screen/wachat_screen.dart';
+import '../views/onboarding/screen/onboarding_screen.dart';
+import '../views/qr_generator/detail/screen/qr_code_detail_screen.dart';
+import '../views/qr_generator/list/screen/qr_code_list_screen.dart';
+import '../views/qr_reader/reader/screen/qr_reader_screen.dart';
+import '../views/qr_generator/generator/screen/qr_generator_screen.dart';
+import '../views/qr_reader/scanned/screen/scanned_qr_codes_screen.dart';
+import '../views/settings/screen/settings_screen.dart';
+import '../views/note/list/screen/note_list_screen.dart';
+import '../views/note/detail/screen/note_detail_screen.dart';
+import '../views/splash/screen/splash_screen.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 

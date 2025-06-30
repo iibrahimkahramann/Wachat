@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wachat_new_package/rate_us/rate_us.dart';
+import 'package:wachat_new_package/views/rate_us/rate_us.dart';
 
 class RateUsDialogWithDelayedClose extends StatefulWidget {
   @override
