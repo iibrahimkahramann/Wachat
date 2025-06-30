@@ -80,9 +80,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
                 GestureDetector(
                   onTap: () async {
-                    SharedPreferences prefs =
-                        await SharedPreferences.getInstance();
-                    await prefs.setBool('isFirstLaunch', true);
+                    final prefs = await SharedPreferences.getInstance();
+                await prefs.setBool('onboardingSeen', true);
                     context.go('/home');
                   },
                   child: Container(

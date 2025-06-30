@@ -15,9 +15,9 @@ class SplashScreen extends ConsumerWidget {
       const Duration(seconds: 2),
       () async {
         final prefs = await SharedPreferences.getInstance();
-        final isFirstLaunch = prefs.getBool('isFirstLaunch') ?? false;
+        final onboardingSeen = prefs.getBool('onboardingSeen') ?? false;
         if (!isPremium) {
-          if (isFirstLaunch) {
+          if (onboardingSeen) {
             context.go('/home');
           } else {
             context.go('/onboarding');
