@@ -84,9 +84,8 @@ class MyAppState extends ConsumerState<MyApp> {
   void initState() {
     super.initState();
 
-    setupRevenueCatListener(ref); // Burada artık ref erişilebilir
-
-    // Simulate some initialization work
+    setupRevenueCatListener(ref); 
+   
     Future.delayed(const Duration(seconds: 1), () {
       setState(() {
         _appIsReady = true;
