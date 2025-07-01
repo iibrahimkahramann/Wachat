@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../config/custom_theme.dart';
 import '../../../../providers/note_provider.dart';
 
 class PrivateNoteScreen extends ConsumerWidget {
@@ -22,17 +21,14 @@ class PrivateNoteScreen extends ConsumerWidget {
       appBar: AppBar(
         leading: IconButton(
           icon: Image.asset('assets/icons/chevron-left.png',
-              width: width * 0.06, color: Colors.black),
+              width: width * 0.06, color: Theme.of(context).colorScheme.onBackground),
           onPressed: () => GoRouter.of(context).go('/home'),
         ),
         title: Padding(
-          padding:
-              EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.17),
+          padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.17),
           child: Text(
             'Private Note'.tr(),
-            style: CustomTheme.textTheme(context)
-                .bodyLarge
-                ?.copyWith(color: Colors.black),
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
         actions: [
@@ -40,12 +36,12 @@ class PrivateNoteScreen extends ConsumerWidget {
             padding: const EdgeInsets.only(right: 5),
             child: IconButton(
               icon: Image.asset('assets/icons/folder.png',
-                  width: width * 0.06, color: Colors.black),
+                  width: width * 0.06, color: Theme.of(context).colorScheme.onBackground),
               onPressed: () => GoRouter.of(context).go('/note-list'),
             ),
           ),
         ],
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Theme.of(context).colorScheme.surface,
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(
@@ -59,9 +55,7 @@ class PrivateNoteScreen extends ConsumerWidget {
                   borderRadius: BorderRadius.circular(8),
                 ),
                 hintText: 'Write the Note Title here...'.tr(),
-                hintStyle: CustomTheme.textTheme(context)
-                    .bodyMedium
-                    ?.copyWith(color: Colors.grey[400]),
+                hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey[400]),
               ),
               onChanged: (value) {
                 _title = value;
@@ -76,9 +70,7 @@ class PrivateNoteScreen extends ConsumerWidget {
                   borderRadius: BorderRadius.circular(8),
                 ),
                 hintText: 'Write your note here...'.tr(),
-                hintStyle: CustomTheme.textTheme(context)
-                    .bodyMedium
-                    ?.copyWith(color: Colors.grey[400]),
+                hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey[400]),
               ),
               onChanged: (value) {
                 _note = value;
@@ -101,15 +93,13 @@ class PrivateNoteScreen extends ConsumerWidget {
                 width: width * 0.95,
                 height: height * 0.07,
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 37, 211, 102),
+                  color: Theme.of(context).primaryColor,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Center(
                   child: Text(
                     'Save Note'.tr(),
-                    style: CustomTheme.textTheme(context)
-                        .bodyMedium
-                        ?.copyWith(color: Colors.white),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white),
                   ),
                 ),
               ),
@@ -120,3 +110,4 @@ class PrivateNoteScreen extends ConsumerWidget {
     );
   }
 }
+

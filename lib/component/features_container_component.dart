@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:wachat_new_package/config/custom_theme.dart';
 
 class FeaturesContainerComponent extends StatelessWidget {
   const FeaturesContainerComponent({
@@ -29,7 +28,7 @@ class FeaturesContainerComponent extends StatelessWidget {
         width: width,
         height: height * 0.1,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Padding(
@@ -49,20 +48,20 @@ class FeaturesContainerComponent extends StatelessWidget {
                 children: [
                   Text(
                     title.tr(),
-                    style: CustomTheme.textTheme(context).bodyLarge,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                   Text(
                     subtitle.tr(),
-                    style: CustomTheme.textTheme(context)
-                        .bodyMedium
-                        ?.copyWith(color: Colors.black.withAlpha(160)),
+                    style: Theme.of(context)
+                        .textTheme.bodyMedium
+                        ?.copyWith(color: Theme.of(context).textTheme.bodyMedium?.color?.withAlpha(160)),
                   ),
                 ],
               ),
               Spacer(), 
               Icon(
                 Icons.arrow_forward_ios_rounded,
-                color: Colors.black,
+                color: Theme.of(context).textTheme.bodyLarge?.color,
               ),
             ],
           ),

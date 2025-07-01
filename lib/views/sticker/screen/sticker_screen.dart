@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:wachat_new_package/config/custom_theme.dart';
 import 'package:wachat_new_package/providers/stickers_providers.dart';
 
 class StickerListScreen extends StatelessWidget {
@@ -14,20 +13,17 @@ class StickerListScreen extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           icon: Image.asset('assets/icons/chevron-left.png',
-              width: width * 0.06, color: Colors.black),
+              width: width * 0.06, color: Theme.of(context).colorScheme.onBackground),
           onPressed: () => GoRouter.of(context).go('/home'),
         ),
         title: Padding(
-          padding:
-              EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.22),
+          padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.22),
           child: Text(
             'Stickers'.tr(),
-            style: CustomTheme.textTheme(context)
-                .bodyLarge
-                ?.copyWith(color: Colors.black),
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Theme.of(context).colorScheme.surface,
       ),
       body: Padding(
         padding:
@@ -39,7 +35,7 @@ class StickerListScreen extends StatelessWidget {
               margin: EdgeInsets.only(bottom: height * 0.015),
               padding: EdgeInsets.all(height * 0.015),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.surface,
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Row(
@@ -52,7 +48,7 @@ class StickerListScreen extends StatelessWidget {
                   IconButton(
                     icon: Icon(
                       Icons.share,
-                      color: Colors.black,
+                      color: Theme.of(context).colorScheme.onBackground,
                     ),
                     onPressed: () {
                       shareSticker(stickerPaths[index], context);
@@ -67,3 +63,4 @@ class StickerListScreen extends StatelessWidget {
     );
   }
 }
+

@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import '../../../../config/custom_theme.dart';
 import '../../../../providers/note_provider.dart';
 
 class NoteListScreen extends ConsumerWidget {
@@ -16,20 +15,17 @@ class NoteListScreen extends ConsumerWidget {
       appBar: AppBar(
         leading: IconButton(
           icon: Image.asset('assets/icons/chevron-left.png',
-              width: width * 0.06, color: Colors.black),
+              width: width * 0.06, color: Theme.of(context).colorScheme.onBackground),
           onPressed: () => GoRouter.of(context).go('/private-note'),
         ),
         title: Padding(
-          padding:
-              EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.21),
+          padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.21),
           child: Text(
             'Note List'.tr(),
-            style: CustomTheme.textTheme(context)
-                .bodyLarge
-                ?.copyWith(color: Colors.black),
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Theme.of(context).colorScheme.surface,
       ),
       body: Padding(
         padding:
@@ -38,9 +34,7 @@ class NoteListScreen extends ConsumerWidget {
             ? Center(
                 child: Text(
                   'No Note generated yet.'.tr(),
-                  style: CustomTheme.textTheme(context)
-                      .bodyMedium
-                      ?.copyWith(color: Colors.grey[400]),
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey[400]),
                 ),
               )
             : ListView.builder(
@@ -57,7 +51,7 @@ class NoteListScreen extends ConsumerWidget {
                       margin: EdgeInsets.only(bottom: height * 0.015),
                       padding: EdgeInsets.all(height * 0.015),
                       decoration: BoxDecoration(
-                        color: Colors.grey[300],
+                        color: Theme.of(context).colorScheme.surface,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Row(
@@ -67,9 +61,7 @@ class NoteListScreen extends ConsumerWidget {
                             notes[index].title.length > 20
                                 ? '${notes[index].title.substring(0, 20)}...' // İlk 20 karakter ve "..."
                                 : notes[index].title, // Tam başlık
-                            style: CustomTheme.textTheme(context)
-                                .bodyMedium
-                                ?.copyWith(color: Colors.black),
+                            style: Theme.of(context).textTheme.bodyMedium,
                           ),
                           IconButton(
                             icon: Icon(Icons.delete),
@@ -92,3 +84,4 @@ class NoteListScreen extends ConsumerWidget {
     );
   }
 }
+

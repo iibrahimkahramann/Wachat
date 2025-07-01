@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -6,7 +5,6 @@ import 'package:wachat_new_package/component/features_container_component.dart';
 import 'package:wachat_new_package/component/main_container_component.dart';
 import 'package:wachat_new_package/config/bar/custom_appbar.dart';
 import 'package:wachat_new_package/config/bar/custom_navbar.dart';
-import 'package:wachat_new_package/config/custom_theme.dart';
 
 import 'package:wachat_new_package/controller/home_controller.dart';
 import 'package:wachat_new_package/providers/premium_provider.dart';
@@ -43,7 +41,6 @@ class _HomeScreeenState extends ConsumerState<HomeScreeen> {
     final isPremium = ref.watch(isPremiumProvider);
 
     return Scaffold(
-      backgroundColor: CustomTheme.backgroundColor,
       appBar: CustomAppBar(),
       body: SingleChildScrollView(
         padding:
@@ -54,6 +51,8 @@ class _HomeScreeenState extends ConsumerState<HomeScreeen> {
             MainContainerComponent(
               height: height,
               width: width,
+              icon: 'assets/logos/home_logo.png',
+              darkIcon: 'assets/logos/home_logo_dark.png',
               ref: ref,
               isPremium: isPremium,
               subtitle:
@@ -67,17 +66,7 @@ class _HomeScreeenState extends ConsumerState<HomeScreeen> {
                 );
               },
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  vertical: height * 0.005, horizontal: width * 0.04),
-              child: Text(
-                'FEATURES'.tr(),
-                style: CustomTheme.textTheme(context)
-                    .bodyLarge
-                    ?.copyWith(fontFamily: ''),
-              ),
-            ),
-            SizedBox(height: height * 0.005),
+            SizedBox(height: height * 0.015),
             FeaturesContainerComponent(
               width: width,
               height: height,

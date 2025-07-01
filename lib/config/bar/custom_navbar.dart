@@ -24,11 +24,11 @@ class CustomNavBar extends StatelessWidget {
         ),
       ],
       currentIndex: _calculateSelectedIndex(currentLocation),
-      selectedItemColor: Colors.green,
+      selectedItemColor: Theme.of(context).primaryColor,
       unselectedItemColor: Colors.grey,
       onTap: (index) => _onItemTapped(index, context),
       type: BottomNavigationBarType.fixed,
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.surface,
     );
   }
 

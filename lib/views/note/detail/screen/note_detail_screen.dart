@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import '../../../../config/custom_theme.dart';
 import '../../../../providers/note_provider.dart';
 
 class NoteDetailScreen extends ConsumerWidget {
@@ -24,20 +23,17 @@ class NoteDetailScreen extends ConsumerWidget {
       appBar: AppBar(
         leading: IconButton(
           icon: Image.asset('assets/icons/chevron-left.png',
-              width: width * 0.06, color: Colors.black),
+              width: width * 0.06, color: Theme.of(context).colorScheme.onBackground),
           onPressed: () => GoRouter.of(context).go('/note-list'),
         ),
         title: Padding(
-          padding:
-              EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.17),
+          padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.17),
           child: Text(
             'Note Detail'.tr(),
-            style: CustomTheme.textTheme(context)
-                .bodyLarge
-                ?.copyWith(color: Colors.black),
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Theme.of(context).colorScheme.surface,
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(
@@ -51,7 +47,7 @@ class NoteDetailScreen extends ConsumerWidget {
                     borderRadius: BorderRadius.circular(8),
                   ),
                   hintText: 'Update the Note Title...'.tr(),
-                  hintStyle: CustomTheme.textTheme(context).bodySmall),
+                  hintStyle: Theme.of(context).textTheme.bodySmall),
             ),
             SizedBox(height: height * 0.02),
             TextField(
@@ -62,9 +58,7 @@ class NoteDetailScreen extends ConsumerWidget {
                   borderRadius: BorderRadius.circular(8),
                 ),
                 hintText: 'Update the note text...'.tr(),
-                hintStyle: CustomTheme.textTheme(context)
-                    .bodyMedium
-                    ?.copyWith(color: Colors.grey[400]),
+                hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey[400]),
               ),
             ),
             SizedBox(height: height * 0.02),
@@ -85,15 +79,13 @@ class NoteDetailScreen extends ConsumerWidget {
                 width: width * 0.95,
                 height: height * 0.07,
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 37, 211, 102),
+                  color: Theme.of(context).primaryColor,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Center(
                   child: Text(
                     'Update Note'.tr(),
-                    style: CustomTheme.textTheme(context)
-                        .bodyMedium
-                        ?.copyWith(color: Colors.white),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white),
                   ),
                 ),
               ),
@@ -104,3 +96,4 @@ class NoteDetailScreen extends ConsumerWidget {
     );
   }
 }
+

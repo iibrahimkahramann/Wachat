@@ -14,7 +14,7 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
 
     return Container(
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 242, 242, 242),
+        color: Theme.of(context).scaffoldBackgroundColor,
       ),
       child: SafeArea(
         child: SizedBox(
@@ -39,11 +39,11 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                       width: width * 0.12,
                       height: height * 0.05,
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 37, 211, 102),
+                        color: Theme.of(context).primaryColor,
                         borderRadius: BorderRadius.circular(30),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.grey.withValues(alpha: 0.2),
+                            color: Colors.grey.withOpacity(0.2),
                             spreadRadius: 2,
                             blurRadius: 5,
                             offset: const Offset(0, 3),

@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:wachat_new_package/config/custom_theme.dart';
 import 'package:wachat_new_package/controller/home_controller.dart';
 import 'package:wachat_new_package/providers/premium_provider.dart';
 import 'package:wachat_new_package/controller/wachat_controller.dart';
@@ -95,7 +94,7 @@ class _WachatScreenState extends ConsumerState<WachatScreen> {
               icon: Image.asset(
                 'assets/icons/chevron-left.png',
                 width: width * 0.06,
-                color: isBackDisabled ? Colors.grey : Colors.black,
+                color: isBackDisabled ? Colors.grey : Theme.of(context).colorScheme.onBackground,
               ),
               onPressed: isBackDisabled
                   ? null
@@ -107,9 +106,7 @@ class _WachatScreenState extends ConsumerState<WachatScreen> {
           padding: EdgeInsets.only(left: width * 0.21),
           child: Text(
             'Wachat',
-            style: CustomTheme.textTheme(context)
-                .bodyLarge
-                ?.copyWith(color: Colors.green),
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.green),
           ),
         ),
         // Sayaç göstergesi
@@ -137,7 +134,7 @@ class _WachatScreenState extends ConsumerState<WachatScreen> {
             return SizedBox.shrink();
           }),
         ],
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Theme.of(context).colorScheme.surface,
       ),
       body: SafeArea(
         child: FutureBuilder<Object>(

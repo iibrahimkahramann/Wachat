@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:wachat_new_package/config/custom_theme.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -54,8 +53,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   child: Center(
                     child: Text('Are you ready?'.tr(),
                         textAlign: TextAlign.center,
-                        style: CustomTheme.textTheme(context)
-                            .bodyLarge
+                        style: Theme.of(context)
+                            .textTheme.bodyLarge
                             ?.copyWith(
                                 color: Colors.white, fontSize: width * 0.065)),
                   ),
@@ -70,8 +69,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         'Add your second WA account now and enjoy the freedom of dual accounts!'
                             .tr(),
                         textAlign: TextAlign.center,
-                        style: CustomTheme.textTheme(context)
-                            .bodyMedium
+                        style: Theme.of(context)
+                            .textTheme.bodyMedium
                             ?.copyWith(color: Colors.white)),
                   ),
                 ),
@@ -94,8 +93,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     child: Center(
                       child: Text(
                         'Let s start'.tr(),
-                        style: CustomTheme.textTheme(context)
-                            .bodyLarge
+                        style: Theme.of(context)
+                            .textTheme.bodyLarge
                             ?.copyWith(color: Colors.white),
                       ),
                     ),

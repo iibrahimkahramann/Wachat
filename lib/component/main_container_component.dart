@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:wachat_new_package/config/custom_theme.dart';
 
 class MainContainerComponent extends StatelessWidget {
   const MainContainerComponent({
@@ -13,6 +12,8 @@ class MainContainerComponent extends StatelessWidget {
     required this.subtitle,
     required this.buttonText,
     required this.onTap,
+    this.darkIcon,
+    required this.icon,
   });
 
   final double height;
@@ -22,26 +23,29 @@ class MainContainerComponent extends StatelessWidget {
   final String subtitle;
   final String buttonText;
   final VoidCallback onTap;
+  final String? darkIcon;
+  final String icon;
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final displayIcon = isDarkMode && darkIcon != null ? darkIcon! : icon;
     return Container(
       height: height * 0.30,
       width: width,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        color: CustomTheme.secondaryColor,
+        color: Theme.of(context).colorScheme.secondary,
       ),
       child: Stack(
         children: [
-          Image.asset('assets/images/home_background.png'),
           Padding(
             padding: EdgeInsets.only(top: height * 0.03),
             child: Column(
               children: [
                 Center(
                   child: Image.asset(
-                    'assets/logos/home_logo.png',
+                    displayIcon,
                     width: width * 0.17,
                   ),
                 ),
@@ -50,7 +54,7 @@ class MainContainerComponent extends StatelessWidget {
                 ),
                 Text(
                   'Web Messanger',
-                  style: CustomTheme.textTheme(context).bodyLarge,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 SizedBox(
                   height: height * 0.005,
@@ -59,7 +63,7 @@ class MainContainerComponent extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: width * 0.1),
                   child: Text(subtitle.tr(),
                       textAlign: TextAlign.center,
-                      style: CustomTheme.textTheme(context).bodyMedium),
+                      style: Theme.of(context).textTheme.bodyMedium),
                 ),
                 SizedBox(
                   height: height * 0.015,
@@ -73,11 +77,12 @@ class MainContainerComponent extends StatelessWidget {
                       width: width,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
-                        color: CustomTheme.primaryColor,
+                        color: Theme.of(context).primaryColor,
                       ),
                       child: Center(
                         child: Text(buttonText.tr(),
-                            style: CustomTheme.textTheme(context)
+                            style: Theme.of(context)
+                                .textTheme
                                 .bodyMedium
                                 ?.copyWith(color: Colors.white)),
                       ),

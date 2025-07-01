@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../../config/custom_theme.dart';
 import '../../../../providers/qr_code_reader_provider.dart';
 
 class QRReaderScreen extends ConsumerWidget {
@@ -19,16 +18,14 @@ class QRReaderScreen extends ConsumerWidget {
       appBar: AppBar(
         leading: IconButton(
           icon: Image.asset('assets/icons/chevron-left.png',
-              width: width * 0.06, color: Colors.black),
+              width: width * 0.06, color: Theme.of(context).colorScheme.onBackground),
           onPressed: () => GoRouter.of(context).go('/home'),
         ),
         title: Padding(
           padding: EdgeInsets.only(left: width * 0.2),
           child: Text(
             'QR Reader'.tr(),
-            style: CustomTheme.textTheme(context)
-                .bodyLarge
-                ?.copyWith(color: Colors.black),
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
         actions: [
@@ -36,12 +33,12 @@ class QRReaderScreen extends ConsumerWidget {
             padding: const EdgeInsets.only(right: 5),
             child: IconButton(
               icon: Image.asset('assets/icons/folder.png',
-                  width: width * 0.06, color: Colors.black),
+                  width: width * 0.06, color: Theme.of(context).colorScheme.onBackground),
               onPressed: () => GoRouter.of(context).go('/scanned-qr-codes'),
             ),
           ),
         ],
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Theme.of(context).colorScheme.surface,
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(
@@ -64,7 +61,7 @@ class QRReaderScreen extends ConsumerWidget {
                       width: width * 0.95,
                       height: height * 0.10,
                       decoration: BoxDecoration(
-                        color: Colors.grey[300],
+                        color: Theme.of(context).colorScheme.surface,
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Center(
@@ -86,15 +83,13 @@ class QRReaderScreen extends ConsumerWidget {
                 width: width * 0.95,
                 height: height * 0.07,
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 37, 211, 102),
+                  color: Theme.of(context).primaryColor,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Center(
                   child: Text(
                     'Read QR Code'.tr(),
-                    style: CustomTheme.textTheme(context)
-                        .bodyMedium
-                        ?.copyWith(color: Colors.white),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white),
                   ),
                 ),
               ),

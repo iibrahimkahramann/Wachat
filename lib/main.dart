@@ -11,6 +11,7 @@ import 'package:wachat_new_package/config/router.dart' as app_router;
 import 'package:wachat_new_package/firebase_options.dart';
 import 'package:wachat_new_package/init/initialize.dart';
 import 'package:wachat_new_package/providers/premium_provider.dart';
+import 'package:wachat_new_package/providers/theme_provider.dart';
 import 'package:wachat_new_package/providers/rate_us_provider.dart';
 
 void main() async {
@@ -137,11 +138,14 @@ class MyAppState extends ConsumerState<MyApp> {
         ),
       );
     }
+    final themeMode = ref.watch(themeProvider);
 
     return MaterialApp.router(
       title: 'Wachat',
       debugShowCheckedModeBanner: false,
-      theme: CustomTheme.themeData(context),
+      theme: CustomTheme.lightTheme(context),
+      darkTheme: CustomTheme.darkTheme(context),
+      themeMode: themeMode,
       routerConfig: app_router.appRouter,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,

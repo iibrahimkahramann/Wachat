@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/link.dart';
-import 'package:wachat_new_package/config/custom_theme.dart';
 
 class SettingsContainerComponents extends StatelessWidget {
   const SettingsContainerComponents({
@@ -11,6 +10,7 @@ class SettingsContainerComponents extends StatelessWidget {
     required this.url,
     required this.icon,
     required this.title,
+    this.darkIcon,
   });
 
   final double width;
@@ -18,15 +18,20 @@ class SettingsContainerComponents extends StatelessWidget {
   final String url;
   final String icon;
   final String title;
+  final String? darkIcon;
+
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final displayIcon = isDarkMode && darkIcon != null ? darkIcon! : icon;
+
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: width * 0.05,
         vertical: height * 0.01,
       ),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Link(
@@ -43,7 +48,7 @@ class SettingsContainerComponents extends StatelessWidget {
             child: Row(
               children: [
                 Image.asset(
-                  icon,
+                  displayIcon,
                   width: width * 0.08,
                 ),
                 SizedBox(
@@ -51,9 +56,7 @@ class SettingsContainerComponents extends StatelessWidget {
                 ),
                 Text(
                   title.tr(),
-                  style: CustomTheme.textTheme(context)
-                      .bodyMedium
-                      ?.copyWith(color: Colors.black),
+                  style: Theme.of(context).textTheme.bodyMedium,
                   textAlign: TextAlign.left, 
                 ),
               ],
