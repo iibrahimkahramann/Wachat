@@ -43,6 +43,7 @@ class _HomeScreeenState extends ConsumerState<HomeScreeen> {
     final isPremium = ref.watch(isPremiumProvider);
 
     return Scaffold(
+      backgroundColor: CustomTheme.backgroundColor,
       appBar: CustomAppBar(),
       body: SingleChildScrollView(
         padding:

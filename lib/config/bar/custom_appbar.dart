@@ -13,7 +13,7 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
     final isPremium = ref.watch(isPremiumProvider);
 
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: Color.fromARGB(255, 242, 242, 242),
       ),
       child: SafeArea(
