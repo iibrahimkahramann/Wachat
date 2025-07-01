@@ -96,19 +96,36 @@ class QRGeneratorScreen extends ConsumerWidget {
               ),
             ),
             SizedBox(
-              height: height * 0.02,
+              height: height * 0.05,
             ),
-            if (lastQRCode != null) // Eğer son QR kodu varsa göster
-              Column(
-                children: [
-                  QrImageView(
-                    data: lastQRCode, // Son QR kodunu göster
-                    version: QrVersions.auto,
-                    size: 200.0,
-                  ),
-                  SizedBox(height: 8),
-                  Text(lastQRCode), // Son QR kod metni
-                ],
+            if (lastQRCode != null) 
+              Container(
+                width: width * 0.7,
+                height: height * 0.3,
+                decoration: BoxDecoration(
+                  color: Colors.white ,
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withValues(alpha: 0.5),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                ),
+                padding: EdgeInsets.all(16),
+                child: Column(
+                  children: [
+                    QrImageView(
+                      data: lastQRCode, 
+                      version: QrVersions.auto,
+                      size: width * 0.5,
+                    ),
+                    SizedBox(height: 8),
+                    Text(lastQRCode.length > 20 ? '${lastQRCode.substring(0, 25)}...' : lastQRCode),
+                  ],
+                ),
               ),
           ],
         ),

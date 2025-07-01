@@ -59,8 +59,8 @@ class ScannedQRCodesScreen extends ConsumerWidget {
                         Expanded(
                           child: Text(
                             scannedCodes[index].length > 20
-                                ? '${scannedCodes[index].substring(0, 20)}...' // İlk 20 karakter ve "..."
-                                : scannedCodes[index], // Tam başlık
+                                ? '${scannedCodes[index].substring(0, 20)}...'
+                                : scannedCodes[index], 
                             style: CustomTheme.textTheme(context)
                                 .bodyMedium
                                 ?.copyWith(color: Colors.black),

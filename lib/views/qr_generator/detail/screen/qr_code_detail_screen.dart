@@ -7,10 +7,9 @@ import 'package:share_plus/share_plus.dart';
 import '../../../../config/custom_theme.dart';
 
 class QRCodeDetailScreen extends StatelessWidget {
-  final String qrCode; // QR kodunu saklamak için bir değişken
+  final String qrCode; 
 
-  // Yapıcı metod
-  QRCodeDetailScreen({required this.qrCode}); // qrCode parametresini al
+  QRCodeDetailScreen({required this.qrCode}); 
 
   @override
   Widget build(BuildContext context) {
@@ -41,10 +40,22 @@ class QRCodeDetailScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
-              constraints: BoxConstraints(
-                maxHeight: height * 0.75,
-                maxWidth: width * 0.75,
+              width: width * 0.75,
+              height: height * 0.32,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withValues(alpha: 0.2),
+                    spreadRadius: 2,
+                    blurRadius: 5,
+                    offset: Offset(0, 3), 
+                    
+                  ),
+                ],
               ),
+              alignment: Alignment.center,
               child: QrImageView(
                 data: qrCode,
                 version: QrVersions.auto,
@@ -52,12 +63,30 @@ class QRCodeDetailScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: height * 0.03),
-            Text(qrCode), // QR kod metni
-            SizedBox(height: height * 0.09),
+            Container(
+              width: width * 0.75,
+              height: height * 0.05,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withValues(alpha: 0.2),
+                    spreadRadius: 2,
+                    blurRadius: 5,
+                    offset: Offset(0, 3), 
+                    
+                  ),
+                ],
+              ),
+              alignment: Alignment.center,
+              child: Text(qrCode.length > 20 ? '${qrCode.substring(0, 34)}...' : qrCode),
+            ),
+            SizedBox(height: height * 0.31),
             GestureDetector(
               onTap: () {
-                // Paylaşma işlemi
-                Share.share(qrCode, subject: 'QR Kodum'); // QR kodunu paylaş
+               
+                Share.share(qrCode, subject: 'QR Kodum'); 
               },
               child: Container(
                 width: width * 0.95,
@@ -70,7 +99,7 @@ class QRCodeDetailScreen extends StatelessWidget {
                   child: Text(
                     'Share'.tr(),
                     style: TextStyle(
-                      fontSize: 16, // Font boyutunu belirleyin
+                      fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),

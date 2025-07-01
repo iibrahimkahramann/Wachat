@@ -11,7 +11,6 @@ import 'package:wachat_new_package/config/custom_theme.dart';
 import 'package:wachat_new_package/controller/home_controller.dart';
 import 'package:wachat_new_package/providers/premium_provider.dart';
 
-
 class HomeScreeen extends ConsumerStatefulWidget {
   const HomeScreeen({super.key});
 
@@ -51,13 +50,22 @@ class _HomeScreeenState extends ConsumerState<HomeScreeen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            MainContainerComponent(height: height, width: width, ref: ref, isPremium: isPremium, subtitle: 'Login to your Web Messanger second account with Wachat', buttonText: 'Open Web Messenger', onTap: () async {
-    await WachatOnTapHandler.handle(
-      context: context,
-      ref: ref,
-      isPremium: isPremium,
-    );
-  },),
+            MainContainerComponent(
+              height: height,
+              width: width,
+              ref: ref,
+              isPremium: isPremium,
+              subtitle:
+                  'Login to your Web Messanger second account with Wachat',
+              buttonText: 'Open Web Messenger',
+              onTap: () async {
+                await WachatOnTapHandler.handle(
+                  context: context,
+                  ref: ref,
+                  isPremium: isPremium,
+                );
+              },
+            ),
             Padding(
               padding: EdgeInsets.symmetric(
                   vertical: height * 0.005, horizontal: width * 0.04),
@@ -69,15 +77,50 @@ class _HomeScreeenState extends ConsumerState<HomeScreeen> {
               ),
             ),
             SizedBox(height: height * 0.005),
-            FeaturesContainerComponent(width: width, height: height, onTap: () => context.go('/qr-generator'), icon: 'assets/icons/qr_generator.png', title: 'QR Generator', subtitle: 'Generate QR code',),
+            FeaturesContainerComponent(
+              width: width,
+              height: height,
+              onTap: () => context.go('/qr-generator'),
+              icon: 'assets/icons/qr_generator.png',
+              title: 'QR Generator',
+              subtitle: 'Generate QR code',
+            ),
             SizedBox(height: height * 0.015),
-            FeaturesContainerComponent(width: width, height: height, onTap: () => context.go('/qr-reader'), icon: 'assets/icons/qr_scanner.png', title: 'QR Generator', subtitle: 'Generate QR code',),
+            FeaturesContainerComponent(
+              width: width,
+              height: height,
+              onTap: () => context.go('/qr-reader'),
+              icon: 'assets/icons/qr_scanner.png',
+              title: 'QR Scanner',
+              subtitle: 'Scan your QR codes',
+            ),
             SizedBox(height: height * 0.015),
-            FeaturesContainerComponent(width: width, height: height, onTap: () => context.go('/private-note'), icon: 'assets/icons/notes.png', title: 'Private Note', subtitle: 'Keep a secret note',),
+            FeaturesContainerComponent(
+              width: width,
+              height: height,
+              onTap: () => context.go('/private-note'),
+              icon: 'assets/icons/notes.png',
+              title: 'Private Note',
+              subtitle: 'Keep a secret note',
+            ),
             SizedBox(height: height * 0.015),
-            FeaturesContainerComponent(width: width, height: height, onTap: () => context.go('/emoji'), icon: 'assets/icons/emojis.png', title: 'Emojis', subtitle: 'More Emoji',),
+            FeaturesContainerComponent(
+              width: width,
+              height: height,
+              onTap: () => context.go('/emoji'),
+              icon: 'assets/icons/emojis.png',
+              title: 'Emojis',
+              subtitle: 'More Emoji',
+            ),
             SizedBox(height: height * 0.015),
-            FeaturesContainerComponent(width: width, height: height, onTap: () => context.go('/sticker'), icon: 'assets/icons/stickers.png', title: 'Sticker', subtitle: 'More Sticker',),
+            FeaturesContainerComponent(
+              width: width,
+              height: height,
+              onTap: () => context.go('/sticker'),
+              icon: 'assets/icons/stickers.png',
+              title: 'Sticker',
+              subtitle: 'More Sticker',
+            ),
             SizedBox(height: height * 0.015),
           ],
         ),
@@ -86,4 +129,3 @@ class _HomeScreeenState extends ConsumerState<HomeScreeen> {
     );
   }
 }
-
