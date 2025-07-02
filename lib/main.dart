@@ -59,6 +59,14 @@ void main() async {
         Locale('pt', ''),
         Locale('es', ''),
         Locale('de', ''),
+        Locale('id', ''),
+        Locale('th', ''),
+        Locale('ms', ''),
+        Locale('ko', ''),
+        Locale('ja', ''),
+        Locale('zh', 'CN'),
+        Locale('ru', ''),
+        Locale('ar', ''),
       ],
       path: 'assets/lang',
       fallbackLocale: const Locale('en', ''),
@@ -85,8 +93,8 @@ class MyAppState extends ConsumerState<MyApp> {
   void initState() {
     super.initState();
 
-    setupRevenueCatListener(ref); 
-   
+    setupRevenueCatListener(ref);
+
     Future.delayed(const Duration(seconds: 1), () {
       setState(() {
         _appIsReady = true;
